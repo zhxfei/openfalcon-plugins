@@ -15,3 +15,4 @@ MAILTO=root
 */1 * * * * root /www/falcon-agent/plugin/60_shadowsocks_mon.sh
 */1 * * * * root /www/falcon-agent/plugin/60_shadowsocks_mon_me.sh
 */1 * * * * root /www/falcon-agent/plugin/60_uptime.sh
+*/1 * * * * root /www/falcon-agent/plugin/60_shadowsocks_mon_jk.sh
