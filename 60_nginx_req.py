@@ -6,6 +6,7 @@ import time
 import json
 import os
 
+# status_counter means : http://tengine.taobao.org/document_cn/http_reqstat_cn.html
 status_counter = {
     'kv': 'www.zhxfei.com',
     'bytes_in': 0,
@@ -122,15 +123,13 @@ def main():
                 "timestamp": ts,
                 "step": 60,
                 "value": v,
-                "counterType": "GAUGE",
+                "counterType": "COUNTER",
                 "tags": "ip={ip} port={port}".format(**get_ip_port())
             }
             payload_lst.append(payload)
         return payload_lst
 
-
 payload = main()
-
 
 r = requests.post("http://127.0.0.1:1988/v1/push", data=json.dumps(payload))
 
