@@ -12,7 +12,7 @@ payload_lst = []
 
 
 def get_mon_by_port(port):
-    command = ''' iptables -L -n -v| grep {}'''
+    command = ''' iptables -L -n -v -x| grep {}'''
     res = os.popen(command.format(port)).read().strip()
     if res:
         pkt, byte = map(int, re.split('\s+', res)[:2])
@@ -56,7 +56,7 @@ def main():
     print payload_lst
 
 main()
-# print payload_lst
+#print payload_lst
 r = requests.post("http://127.0.0.1:1988/v1/push", data=json.dumps(payload_lst))
 print r.text
 
